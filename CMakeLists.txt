@@ -11,6 +11,8 @@ find_package(Qt6 QUIET COMPONENTS SerialPort)
 find_package(Qt6 QUIET COMPONENTS Widgets)
 find_package(Qt6 QUIET COMPONENTS tests)
 
-add_library(common STATIC)
+add_library(common STATIC
+        common/modbus/crc16.cpp
+        common/modbus/crc16.h)
 target_include_directories(common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/common)
 target_link_libraries(common PUBLIC Qt6::Core Qt6::Network)
