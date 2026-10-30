@@ -30,7 +30,7 @@ quint16 crc16_bitwise(const quint8* data, size_t len)
 {
     quint16 crc = 0xFFFF;       // 1.初始值全为 1;
     for (size_t i = 0; i < len; ++i) {
-        crc ^ data[i];      //  2. 把当前字节 xor 进寄存器低 8 位
+        crc = crc ^ data[i];      //  2. 把当前字节 xor 进寄存器低 8 位
         for (int j = 0; j < 8; ++j) {   // 3.处理八位
             if(crc & 0x0001)        // 4.如果最低位是 1
                 crc = (crc >> 1) ^ 0xA001;  // 右移后 xor 多项式
